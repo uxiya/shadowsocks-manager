@@ -43,8 +43,8 @@ class ListViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 let ports = dict["Content"] as! NSArray
                 var Infos = [Port]()
                 for port in ports {
-                    let dict = port as! Dictionary<NSString,NSString>
-                    let tmp:Port = Port(port:dict["Port"]!,pass:dict["Password"]!)
+                    let dict = port as! Dictionary<NSString,AnyObject>
+                    let tmp:Port = Port(port:dict["Port"]! as! NSString,pass:dict["Password"]! as! NSString,flow:dict["Flow"]! as! NSNumber)
                     Infos.append(tmp)
                 }
                 self.Infos=Infos
@@ -66,7 +66,7 @@ class ListViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         let port2:Port = Infos[indexPath.row]
         cell!.textLabel!.text = port2.port as String
-        cell!.detailTextLabel!.text = port2.pass as String
+        cell!.detailTextLabel!.text = port2.flow.stringValue
         return cell!
     }
     

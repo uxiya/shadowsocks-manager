@@ -11,9 +11,11 @@ import UIKit
 class Port: NSObject {
     var port:NSString
     var pass:NSString
+    var flow:NSNumber
     
-    init(port:NSString,pass:NSString){
+    init(port:NSString,pass:NSString,flow:NSNumber){
         self.port=port
         self.pass=pass
+        self.flow=flow
     }
 }
