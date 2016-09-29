@@ -66,7 +66,8 @@ class ListViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         let port2:Port = Infos[indexPath.row]
         cell!.textLabel!.text = port2.port as String
-        cell!.detailTextLabel!.text = port2.flow.stringValue
+        //cell!.detailTextLabel!.text = "\(port2.flow.stringValue)-\(port2.pass)"
+        cell!.detailTextLabel!.text = String(format: "%.3f", port2.flow.floatValue)+":"+(port2.pass as String)
         return cell!
     }
     
